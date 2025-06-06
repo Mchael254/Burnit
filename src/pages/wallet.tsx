@@ -45,7 +45,6 @@ function Wallet() {
                     return !isWalletExpired(wallet.active_period) && !wallet.is_deleted;
                 });
 
-                setActiveWallets(active);
                 setHasActiveWallet(active.length > 0);
 
                 if(active.length > 0){
@@ -61,10 +60,9 @@ function Wallet() {
         fetchWallets();
     }, []);
 
-    const [activeWallets, setActiveWallets] = useState<WalletTypes[]>([]);
+ 
     const [hasActiveWallet, setHasActiveWallet] = useState(false);
     const [loadingWallets, setLoadingWallets] = useState(true);
-
 
     const { open, message, severity, showSnackbar, handleClose } = useSnackbar();
     const [activeTab, setActiveTab] = useState(1);
